@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hikaye Sitesi - Hakkımızda</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #f5f5f5;
+        }
+
+            a:hover {
+                color: #666;
+            }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            nav ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav li {
+                margin-left: 1rem;
+            }
+
+            nav a.button {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                background-color: #333;
+                color: #fff;
+                border-radius: 4px;
+                transition: background-color 0.2s ease;
+            }
+
+                nav a.button:hover {
+                    background-color: #666;
+                }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+            background-color: #f9d5e5;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 3rem;
+                font-weight: normal;
+            }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        main {
+            margin-bottom: 2rem;
+        }
+
+            main h2 {
+                margin-top: 2rem;
+                font-size: 2rem;
+                font-weight: normal;
+            }
+
+            main ol,
+            main ul {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            main li {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Medya sorguları */
+
+        media screen and (max-width: 767px) {
+            nav
+
+        {
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        nav li {
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        nav a.button {
+            margin-top: 1rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .container {
+            padding: 1rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="profile-icon">
+        <a href="https://localhost:7164/Profile/Profile">
+            <img src="path/to/your/icon.png" alt="Profil İkonu">
+        </a>
+    </div>
+    <header>
+        <h1>Hikaye Sitesi Hakkında</h1>
+    </header>
+    <div class="container">
+        <main>
+            <p>Bu site, hikayelerini paylaşmak isteyen herkes için oluşturulmuştur. Siteye üye olarak kendi hikayelerinizi oluşturabilir, düzenleyebilir ve paylaşabilirsiniz. Ayrıca, diğer kullanıcıların hikayelerini okuyabilir, beğenebilir ve yorum yapabilirsiniz.</p>
+            <h2>Nasıl Başlayabilirim?</h2>
+            <p>Hikaye Sitesi'ne üye olmak için sadece birkaç adıma ihtiyacınız var:</p>
+            <ol>
+                <li>Üye ol butonuna tıklayarak kayıt formunu doldurun.</li>
+                <li>Giriş yaparak profilinizi oluşturun.</li>
+                <li>Hikayelerinizi oluşturun ve paylaşın.</li>
+            </ol>
+            <h2>Neler Yapabilirim?</h2>
+            <p>Hikaye Sitesi'nde aşağıdaki işlemleri yapabilirsiniz:</p>
+            <ul>
+                <li>Hikayelerinizi oluşturabilir, düzenleyebilir ve silebilirsiniz.</li>
+                <li>Diğer kullanıcıların hikayelerini okuyabilir, beğenebilir ve yorum yapabilirsiniz.</li>
+                <li>Hikayeleri kategorilere göre filtreleyebilirsiniz.</li>
+                <li>Kullanıcı profillerini inceleyebilirsiniz.</li>
+            </ul>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2023 Hikaye Sitesi. Tüm hakları saklıdır!</p>
+    </footer>
+</body>
+</html>
+

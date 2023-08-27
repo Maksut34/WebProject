@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>User Profile</title>
+
+    <style>
+        /* ... Diğer stillendirmeler ... */
+
+        /* Styling for the gallery section */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem;
+        }
+
+        .gallery-item {
+            margin: 1rem;
+            text-align: center;
+        }
+
+            .gallery-item img {
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+
+            .gallery-item h3 {
+                margin: 0.5rem 0;
+            }
+        
+        /* New styles for buttons */
+        .profile-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-buttons li {
+            margin: 0 1rem;
+        }
+
+        .profile-button {
+            background-color: #FF7F50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .profile-button:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <section class="profile">
+        <br />
+        <div class="text-white" asp-validation-summary="ModelOnly"></div>
+        <br />
+        <img src="profile-picture.jpg" alt="Profile Picture">
+
+        <!-- Profile buttons -->
+        <ul class="profile-buttons">
+            <li><a href="#" class="profile-button">Profil Resmi Oluştur</a></li>
+            <li><a href="https://localhost:7164/UsersProfile/Usersİnformation/" class="profile-button">Profil Bilgisi Düzenle</a></li>
+        </ul>
+    </section>
+    @* <p>Şehir: @Model.City</p>
+    <p>Ülke: @Model.Country</p>
+    <p>Adres: @Model.Address</p> *@
+    <section class="gallery">
+        <!-- Gallery items go here -->
+        <div class="gallery-item">
+            <img src="image1.jpg" alt="Image 1">
+            <h3>Image 1</h3>
+        </div>
+        <!-- ... Daha fazla resim ekleyebilirsiniz ... -->
+    </section>
+    <section class="posts">
+        <!-- Post items go here -->
+        <div class="post">
+            <h3>Story 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- ... Daha fazla hikaye ekleyebilirsiniz ... -->
+    </section>
+</body>
+</html>
+

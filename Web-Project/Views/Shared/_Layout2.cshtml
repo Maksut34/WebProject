@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dazzling Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: transparent;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            transition: background-color 0.5s;
+        }
+
+        .navbar:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-icon {
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .menu-icon:hover {
+            color: #e74c3c;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .menu-item a {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .menu-item a:hover {
+            border-color: #e74c3c;
+        }
+
+        .hero {
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+        }
+
+        .profile-icon {
+            display: none; 
+        }
+
+        .show-profile-icon {
+            display: block; 
+        }
+        media (max-width: 768px) {
+            
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">HİKAYE</a>
+        <div class="menu-icon">&#9776;</div>
+        <ul class="menu">
+            <li class="menu-item"><a href="https://localhost:7164/Login/Login">Giriş</a></li>
+            <li class="menu-item"><a href="https://localhost:7164/Register/Register">Kayıt Ol</a></li>
+
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Hikaye Web Sitesine Hoşgeldiniz!</h1>
+        <p>Her pikselde olağanüstülüğü deneyimleyin.</p>
+        
+    </section>
+    @RenderBody()
+    <script>
+        
+        
+        const menuIcon = document.querySelector('.menu-icon');
+        const menu = document.querySelector('.menu');
+
+        menuIcon.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
