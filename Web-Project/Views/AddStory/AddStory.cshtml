@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "AddStory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Web_Project.Models.AddStoryModels
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hikaye Ekle</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            height: 200px;
+            width: 96%;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>En iyi hikaye senin mi?</h2>
+
+        <br />
+        <div class="text-white" asp-validation-summary="ModelOnly"></div>
+        <br />
+
+        <form class="AddStoryModels" action="" method="post">
+
+            <label for="name">Başlık</label>
+            <input type="text" id="name" asp-for="storyname" required>
+
+            <label for="types">Türler</label>
+            <select id="types" asp-for="Types" required>
+                <option value=""></option>
+                <option value="macera">Macera</option>
+                <option value="gerçeklik">gerçeklik</option>
+                <option value="drama">drama</option>
+                <option value="korku">Korku</option>
+                <option value="romantik">Romantik</option>
+                <option value="bilim-kurgu">Bilim Kurgu</option>
+            </select>
+
+            <label for="stories">Hikayeniz</label>
+            <textarea id="stories" asp-for="Stories" required></textarea>
+
+            <button type="submit">Ekle</button>
+        </form>
+    </div>
+</body>
+</html>
+

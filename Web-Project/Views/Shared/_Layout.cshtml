@@ -1,0 +1,219 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers;
+@using Web_DTO.DTO.UsersLoginDTO
+@model Web_DTO.DTO.UsersLoginDTO.UsersLoginDTO
+
+
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hikaye Sitesi</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        .navbarcon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+            .navbarcon ul {
+                display: flex;
+            }
+
+                .navbarcon ul li {
+                    list-style: none;
+                    margin-left: 30px;
+                }
+
+                    .navbarcon ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                    .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+media only screen and (max-width: 768px) {
+  .logo a {
+    font-size: 1.5rem;
+  }
+}
+
+        
+        .ortasayfa {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+media only screen and (min-width: 600px) {
+  
+  .ortasayfa {
+    width: 1000px;
+    position: fixed;
+    left: 140px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+  }
+}
+
+media only screen and (max-width: 599px) {
+  
+  .ortasayfa {
+    width: 100%;
+    position: relative;
+    left: 0;
+    padding: 20px;
+  }
+}
+       
+        .sol_bar {
+            position: fixed;
+            left: 0;
+            top: 80px;
+            width: 120px;
+            height: calc(100vh);
+            background-color: black;
+        }
+
+            .sol_bar ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .sol_bar ul li {
+                    margin: 10px;
+                }
+
+                    .sol_bar ul li a {
+                        display: block;
+                        color: #fff;
+                        text-decoration: none;
+                        font-size: 14px;
+                        background-color: #333;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+                        transition: all 0.3s ease-in-out;
+                        font-weight: bold;
+                        font-family: Arial, sans-serif;
+                    }
+
+                        .sol_bar ul li a:hover {
+                            background-color: #ffa000;
+                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+                            transform: translateY(-2px);
+                        }
+
+        .sol_bar button {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .sol_bar button {
+                    margin: 10px;
+                }
+                    .sol_bar button {
+                        display: block;
+                        color: #fff;
+                        text-decoration: none;
+                        font-size: 14px;
+                        background-color: #333;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+                        transition: all 0.3s ease-in-out;
+                        font-weight: bold;
+                        font-family: Arial, sans-serif;
+                    }
+
+            .sol_bar button:hover {
+                background-color: #ffa000;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px);
+            }
+      
+        .sağ_bar {
+            position: fixed;
+            right: 0;
+            top: 80px;
+            width: 120px;
+            height: calc(100vh);
+            background-color:black;
+        }
+
+           
+    </style>
+
+</head>
+<body>
+    <div class="navbarcon">
+        <div class="logo">
+            <a href="#">HİKAYE</a>
+        </div>
+        <ul>
+            <li><a href="https://localhost:7164/Home/AnaSayfa">Ana Sayfa</a></li>
+            <li><a href="https://localhost:7164/Profile/Profile">Profil</a></li>
+            <li><a href="https://localhost:7164/Home/Contact">İletişim</a></li>
+            <li><a href="https://localhost:7164/Home/About">Hakkımızda</a></li>
+        </ul>
+       
+    </div>
+    <div class="ortasayfa">
+        @RenderBody()
+    </div>
+    <div class="sol_bar">
+        <ul>
+            <br/>
+            <br/>
+            <br/>
+            
+            <li><a href="#">Romantik</a></li>
+            <li><a href="#">Macera</a></li>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Gerçeklik</a></li>
+            <li><a href="#">Korku</a></li>
+            <li><a href="#">Bilim Kurgu</a></li>
+            <li><a href="https://localhost:7164/Settings/Settings">Settings</a></li>
+            <form class="login-form" action="@Url.Action("OturumuKapat", "Login")" method="post">
+                @Html.AntiForgeryToken()
+                <button type="submit">Oturumu Kapat</button>
+            </form>
+        </ul>
+    </div>
+    <div class="sağ_bar">
+        
+    </div>
+    
+</body>
+</html>
+
+    

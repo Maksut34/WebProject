@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "AnaSayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Web_DTO.DTO.UsersLoginDTO
+@model Web_DTO.DTO.UsersLoginDTO.UsersLoginDTO
+
+
+<style>
+    .story-box {
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 250px; /* Kutunun sabit genişliği */
+        height: 250px; /* Kutunun sabit yüksekliği */
+        overflow: auto; /* Sadece içeride içeriği aşan durumda kaydırma çubuğu görüntüleme */
+    }
+
+    .story-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Üç sütunlu bir grid oluşturun */
+        gap: 25px; /* Kutular arası boşluk */
+    }
+
+    .story-box h2 {
+        font-size: 1.5rem; /* Başlık font boyutunu ayarlayın */
+    }
+
+    .story-box h4 {
+        font-size: 1rem; /* Alt başlık font boyutunu ayarlayın */
+    }
+
+    .story-box p {
+        font-size: 0.9rem; /* Paragraf font boyutunu ayarlayın */
+        white-space: normal; /* İçeriği normal akışa bırakarak alt satıra geçmesini sağlayın */
+    }
+</style>
+
+<html>
+<head>
+</head>
+<body>
+    <div class="story-container">
+        @foreach (var item in Model.addStories)
+        {
+            <div class="story-box">
+                <h2>@item.storyname</h2>
+                <h4>@item.Types</h4>
+                <p>@item.Stories</p>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
