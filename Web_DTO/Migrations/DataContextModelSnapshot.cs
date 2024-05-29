@@ -133,6 +133,13 @@ namespace Web_DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddStoryId"), 1L, 1);
 
+<<<<<<< HEAD
+=======
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     b.Property<string>("Stories")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -144,6 +151,7 @@ namespace Web_DAL.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<string>("storyname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -151,10 +159,19 @@ namespace Web_DAL.Migrations
                     b.HasKey("AddStoryId");
 
                     b.HasIndex("UserId");
+=======
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AddStoryId");
+
+                    b.HasIndex("UsersId");
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
                     b.ToTable("AddStory");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Web_Entity.Models.Contact", b =>
                 {
                     b.Property<int>("contactID")
@@ -181,6 +198,8 @@ namespace Web_DAL.Migrations
                     b.ToTable("Contacts");
                 });
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             modelBuilder.Entity("Web_Entity.Models.Image", b =>
                 {
                     b.Property<int>("image_ID")
@@ -192,17 +211,28 @@ namespace Web_DAL.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
+=======
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     b.Property<string>("image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("image_ID");
 
+<<<<<<< HEAD
                     b.HasIndex("UserId");
+=======
+                    b.HasIndex("UsersId");
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
                     b.ToTable("Images");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("Web_Entity.Models.Martianas_Values", b =>
                 {
                     b.Property<int>("Id")
@@ -300,6 +330,8 @@ namespace Web_DAL.Migrations
                     b.ToTable("playerWorldMapTransforms");
                 });
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             modelBuilder.Entity("Web_Entity.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -374,10 +406,13 @@ namespace Web_DAL.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+<<<<<<< HEAD
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -407,9 +442,12 @@ namespace Web_DAL.Migrations
                     b.Property<int>("confirmemailcode")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<bool>("userIsActive")
                         .HasColumnType("bit");
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -509,6 +547,7 @@ namespace Web_DAL.Migrations
                 {
                     b.HasOne("Web_Entity.Models.Users", "Users")
                         .WithMany("AddStory")
+<<<<<<< HEAD
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -521,6 +560,9 @@ namespace Web_DAL.Migrations
                     b.HasOne("Web_Entity.Models.Users", "Users")
                         .WithMany()
                         .HasForeignKey("UserID")
+=======
+                        .HasForeignKey("UsersId")
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -531,6 +573,7 @@ namespace Web_DAL.Migrations
                 {
                     b.HasOne("Web_Entity.Models.Users", "Users")
                         .WithMany("Images")
+<<<<<<< HEAD
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -565,6 +608,9 @@ namespace Web_DAL.Migrations
                     b.HasOne("Web_Entity.Models.Users", "Users")
                         .WithOne("playerWorldMapTransforms")
                         .HasForeignKey("Web_Entity.Models.PlayerWorldMapTransform", "UserId")
+=======
+                        .HasForeignKey("UsersId")
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -590,12 +636,15 @@ namespace Web_DAL.Migrations
 
                     b.Navigation("Users_Information")
                         .IsRequired();
+<<<<<<< HEAD
 
                     b.Navigation("playerWorldMapTransforms")
                         .IsRequired();
 
                     b.Navigation("players")
                         .IsRequired();
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                 });
 #pragma warning restore 612, 618
         }

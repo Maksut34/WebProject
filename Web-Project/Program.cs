@@ -22,8 +22,11 @@ builder.Services.AddScoped<IImageService, ImageManager>();
 builder.Services.AddScoped<IImage_DAL, Image_DAL>();
 builder.Services.AddScoped<IUsers_InformationService, Users_InformationManager>();
 builder.Services.AddScoped<IUsers_Information_DAL, Users_Information_DAL>();
+<<<<<<< HEAD
 builder.Services.AddScoped<IContect_Service,ContactManager>();
 builder.Services.AddScoped<IContact_DAL, Contact_DAL>();
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>();
@@ -52,7 +55,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Login/Login";
     options.LogoutPath = "/Login/Login";
     options.AccessDeniedPath = "/account/accessDenied";
+<<<<<<< HEAD
     options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+=======
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
     options.SlidingExpiration = true;
     options.Cookie = new CookieBuilder
     {

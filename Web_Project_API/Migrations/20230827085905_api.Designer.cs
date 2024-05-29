@@ -5,14 +5,22 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+<<<<<<< HEAD
 using Web_DTO.Data;
 
+=======
+using Web_Project_API.Identity;
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
 #nullable disable
 
 namespace Web_Project_API.Migrations
 {
+<<<<<<< HEAD
     [DbContext(typeof(DataContext))]
+=======
+    [DbContext(typeof(DataContextAPI))]
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
     [Migration("20230827085905_api")]
     partial class api
     {

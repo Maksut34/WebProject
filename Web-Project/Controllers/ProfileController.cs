@@ -2,12 +2,16 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol;
+<<<<<<< HEAD
 using Web_BLL.Abstract;
 using Web_DTO.DTO.UsersLoginDTO;
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 using Web_Entity.Models;
 
 namespace Web_Project.Controllers
 {
+<<<<<<< HEAD
     [Authorize]
     public class ProfileController : Controller
     {
@@ -23,10 +27,21 @@ namespace Web_Project.Controllers
             _addStoryService = addStoryService;
         }
         [HttpGet]
+=======
+    public class ProfileController : Controller
+    {
+        private readonly UserManager<Users> _user;
+        public ProfileController(UserManager<Users> user) 
+        {
+            _user = user;
+        }
+        [Authorize]
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         public async Task<IActionResult> Profile()
         {
             if (User.Identity.IsAuthenticated)
             {
+<<<<<<< HEAD
                 var userr=await _user.FindByNameAsync(User.Identity.Name);
                 if (userr != null)
                 {
@@ -74,6 +89,14 @@ namespace Web_Project.Controllers
                 }
             }
 
+=======
+                ModelState.AddModelError("", "Kullanıcı aktif!");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Kullanıcı aktif değil!");
+            }
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             return View();
         }
     }

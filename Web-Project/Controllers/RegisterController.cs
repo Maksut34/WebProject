@@ -15,8 +15,15 @@ namespace Web_Project.Controllers
     {
         Random random = new Random();
         private readonly UserManager<Users> _user;
+<<<<<<< HEAD
         public RegisterController(UserManager<Users> user)
         {
+=======
+        private readonly IUsersService _usersService;
+        public RegisterController(UserManager<Users> user,IUsersService usersService)
+        {
+            _usersService = usersService;
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             _user = user;
         }
         [HttpGet]
@@ -31,6 +38,11 @@ namespace Web_Project.Controllers
             {
                 if (usersRegisterDTO.ConfirmPassword==usersRegisterDTO.Password)
                 {
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     if (ModelState.IsValid)
                     {
                         Users users = new Users();
@@ -42,12 +54,20 @@ namespace Web_Project.Controllers
                         }
                         else
                         {
+<<<<<<< HEAD
+=======
+                            
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                             users.Name = usersRegisterDTO.Name;
                             users.Email = usersRegisterDTO.Email;
                             users.UserName = usersRegisterDTO.Username;
                             users.Surname = usersRegisterDTO.Surname;
                             users.ConfirmPassword = usersRegisterDTO.ConfirmPassword;
+<<<<<<< HEAD
                             users.confirmemailcode = random.Next(10, 99);
+=======
+                            users.confirmemailcode = random.Next(100000, 1000000);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                             var resault = await _user.CreateAsync(users, usersRegisterDTO.Password);
 
                             if (resault.Succeeded)
@@ -87,10 +107,15 @@ namespace Web_Project.Controllers
 
                             }
                         }
+<<<<<<< HEAD
                     }
                     else
                     {
                         ModelState.AddModelError("", "Bütün alanları doldurunuz!");
+=======
+
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                     }
                 }
                 else
@@ -100,10 +125,22 @@ namespace Web_Project.Controllers
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 string errorMessage = ex.Message;
             }
             return View();
         }
+=======
+
+                string errorMessage = ex.Message;
+            }
+
+
+
+            return View();
+        }
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         
     }
 }

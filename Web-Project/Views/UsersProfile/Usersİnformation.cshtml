@@ -3,7 +3,11 @@
     ViewData["Title"] = "Users_İnformation";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<<<<<<< HEAD
 @using Microsoft.AspNetCore.Mvc.TagHelpers;
+=======
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 @model EditProfileViewModel
 <!DOCTYPE html>
 <html lang="en">
@@ -61,11 +65,17 @@
 
         <div class="text-white" asp-validation-summary="ModelOnly"></div>
         <br />
+<<<<<<< HEAD
         <p>@ViewBag.e</p>
         <form class="Usersİnformation_form" action="" method="post" enctype="multipart/form-data" >
 
             <label for="image">Resim:</label>
             <input type="file" asp-for="image">
+=======
+
+        <form class="Usersİnformation_form" action="" method="post">
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             <label for="city">Şehir:</label>
             <input type="text" id="city" asp-for="City" >
             <label for="country">Ülke:</label>

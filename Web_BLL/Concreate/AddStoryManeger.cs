@@ -49,6 +49,7 @@ namespace Web_BLL.Concreate
             return _story.Fınd(fınd);
         }
 
+<<<<<<< HEAD
         public List<AddStory> getAll()
         {
             return _story.getAll();
@@ -57,6 +58,11 @@ namespace Web_BLL.Concreate
         public List<AddStory> GetAll(Expression<Func<AddStory, bool>> get)
         {
             return _story.GetAll(get);
+=======
+        public List<AddStory> getAll(Expression<Func<AddStory, bool>> getall)
+        {
+            return _story.getAll(getall);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
 
         public AddStory getbyID(int get)

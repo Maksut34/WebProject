@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+<<<<<<< HEAD
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data;
@@ -36,6 +37,22 @@ builder.Services.AddDbContext<DataContext>();
 builder.Services.AddIdentity<Users, Role>().AddEntityFrameworkStores<DataContext>()
                 .AddDefaultTokenProviders();
 
+=======
+using Microsoft.Extensions.DependencyInjection;
+using System.Data;
+using Web_Project_API.Identity;
+
+var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContextAPI>();
+builder.Services.AddIdentity<IdentityUsers, IdentityUsersRole>().AddEntityFrameworkStores<DataContextAPI>()
+                .AddDefaultTokenProviders();
+
+// Add services to the container.
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -51,9 +68,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+<<<<<<< HEAD
 app.UseRouting();
 
 app.UseAuthentication();
+=======
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 app.UseAuthorization();
 
 app.MapControllers();

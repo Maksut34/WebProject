@@ -23,10 +23,19 @@ namespace Web_Project.Controllers
 
         }
         [HttpGet]
+<<<<<<< HEAD
         public IActionResult Login()
         {
             return View();
             
+=======
+        public IActionResult Login(/*string ReturnUrl=null*/)
+        {
+            return View(/*new UsersLoginDTO(*/);
+            //{
+            //    ReturnUrl= ReturnUrl
+            //});
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
         [HttpPost]
         public async Task <IActionResult> Login(UsersLoginDTO usersLoginDTO,Users u)
@@ -40,7 +49,11 @@ namespace Web_Project.Controllers
 
                 if (user.EmailConfirmed == true)
                 {
+<<<<<<< HEAD
                     return RedirectToAction("Anasayfa", "Home");
+=======
+                    return RedirectToAction("Profile", "Profile");
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
                 }
                 else
@@ -55,7 +68,10 @@ namespace Web_Project.Controllers
             }
             return View();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         
         [HttpPost]
         public async Task<ActionResult> OturumuKapat()

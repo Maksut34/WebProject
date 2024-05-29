@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using MimeKit;
 using System;
 using System.Net.Mail;
@@ -13,6 +14,9 @@ using Web_DTO.DTO.UsersRegisterDTO;
 using Web_Entity.Models;
 using Web_Project.Models;
 
+=======
+using Web_Project_API.Identity;
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
 namespace Web_Project_API.Controllers
 {
@@ -20,6 +24,7 @@ namespace Web_Project_API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+<<<<<<< HEAD
         Users newuser;
         Random random = new Random();
         private readonly UserManager<Users> _userManager;
@@ -33,18 +38,31 @@ namespace Web_Project_API.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _playerWorldMapTransformService= playerWorldMapTransformService;
+=======
+        private readonly UserManager<IdentityUsers> _userManager;
+        public UsersController(UserManager<IdentityUsers> userManager)
+        {
+            _userManager = userManager;
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
 
 
         [HttpGet]
+<<<<<<< HEAD
         public async Task<ActionResult<IEnumerable<UsersManager>>> GetUsers()
         {
             var user = _userManager.Users.FirstOrDefault();  // getAll() metodunu çağırıyoruz.
             if (user == null)
+=======
+        public async Task<ActionResult<IEnumerable<IdentityUsers>>> GetUsers()
+        {
+            if (_userManager.Users == null)
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             {
                 return NotFound();
             }
 
+<<<<<<< HEAD
             return Ok(user);
         }
         [HttpGet("getuser/{id}")]
@@ -364,5 +382,9 @@ namespace Web_Project_API.Controllers
             return NoContent();
         }
 
+=======
+            return await _userManager.Users.ToListAsync();
+        }
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
     }
 }

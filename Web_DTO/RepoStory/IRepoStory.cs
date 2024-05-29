@@ -15,8 +15,12 @@ namespace Web_DTO.RepoStory
         int Insert(T add);
         int Update(T up);
         int Deleted(T delete);
+<<<<<<< HEAD
         List<T> getAll();
         List<T> GetAll(Expression<Func<T, bool>> get);
+=======
+        List<T> getAll(Expression<Func<T, bool>> getall);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         List<T> Lıst(Expression<Func<T, bool>> list);
         T Find(Expression<Func<T, bool>> fınd);
 

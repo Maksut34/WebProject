@@ -20,6 +20,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\Web-Project\Web-Project.csproj" />
     <ProjectReference Include="..\Web_BLL\Web_BLL.csproj" />
@@ -32,4 +33,6 @@
     <Folder Include="Identity\" />
   </ItemGroup>
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 </Project>

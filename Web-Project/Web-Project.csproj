@@ -26,8 +26,11 @@
     <ProjectReference Include="..\Web_Entity\Web_Entity.csproj" />
   </ItemGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="wwwroot\lib\img\" />
   </ItemGroup>
 
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 </Project>

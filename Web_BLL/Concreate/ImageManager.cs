@@ -47,6 +47,7 @@ namespace Web_BLL.Concreate
             return _image.Fınd(fınd);
         }
 
+<<<<<<< HEAD
         
 
         public List<Image> getAll()
@@ -57,6 +58,11 @@ namespace Web_BLL.Concreate
         public List<Image> GetAll(Expression<Func<Image, bool>> get)
         {
             return _image.GetAll(get);
+=======
+        public List<Image> getAll(Expression<Func<Image, bool>> getall)
+        {
+            return _image.getAll(getall);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
 
         public Image getbyID(int get)

@@ -80,9 +80,16 @@
             <br />
             <h6>@ViewBag.Email</h6>
             <br />
+<<<<<<< HEAD
             <input class="form-control" asp-for="ID" value="@ViewBag.ID" style="height:1px;" readonly>
             <br />
             <p>E-posta adresinizin size ait olduğunu doğrulayarak güvenliğinizi sağlamamıza yardımcı olun. Hesabınıza onay kodunu içeren bir e-posta gönderildi. Lütfen o kodu aşşagıya girin:</p>
+=======
+            <label for="userID">Kullanıcı ID</label>
+            <input class="form-control" asp-for="ID" value="@ViewBag.ID" readonly >
+            <br />
+            <p>Help us ensure the security of your email address by confirming that it belongs to you. An email containing a confirmation code has been sent to your account. Please enter the code below:</p>
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             <hr>
             <input type="text" class="form-control" asp-for="confirmcode" placeholder="Kodu buraya yazın!">
             <button class="btn btn-primary" type="submit">Onayla</button>

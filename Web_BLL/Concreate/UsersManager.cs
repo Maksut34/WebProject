@@ -47,6 +47,7 @@ namespace Web_BLL.Concreate
             return _users.Fınd(fınd);
         }
 
+<<<<<<< HEAD
         
 
         public List<Users> getAll()
@@ -57,6 +58,11 @@ namespace Web_BLL.Concreate
         public List<Users> GetAll(Expression<Func<Users, bool>> get)
         {
             return _users.GetAll(get);
+=======
+        public List<Users> getAll(Expression<Func<Users, bool>> getall)
+        {
+            return _users.getAll(getall);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
 
         public Users getbyID(int get)

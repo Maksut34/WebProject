@@ -29,11 +29,19 @@ namespace Web_DTO.RepoStory
 
 
 
+<<<<<<< HEAD
         public List<T> getAll()
         {
             using (var context = new TContext())
             {
                 return context.Set<T>().ToList();
+=======
+        public List<T> getAll(Expression<Func<T, bool>> getall)
+        {
+            using (var context = new TContext())
+            {
+                return context.Set<T>().Where(getall).ToList();
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
             }
         }
 
@@ -143,11 +151,14 @@ namespace Web_DTO.RepoStory
         {
             return await _context.Set<T>().FirstOrDefaultAsync(predicate);
         }
+<<<<<<< HEAD
 
         public List<T> GetAll(Expression<Func<T, bool>> get)
         {
             return _context.Set<T>().ToList();
         }
+=======
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         //public void Dispose()
         //{
         //    _context.Dispose();

@@ -48,6 +48,7 @@ namespace Web_BLL.Concreate
             return _users_Information_DAL.Fınd(fınd);
         }
 
+<<<<<<< HEAD
        
 
         public List<Users_İnformation> getAll()
@@ -58,6 +59,11 @@ namespace Web_BLL.Concreate
         public List<Users_İnformation> GetAll(Expression<Func<Users_İnformation, bool>> get)
         {
             return _users_Information_DAL.GetAll(get);
+=======
+        public List<Users_İnformation> getAll(Expression<Func<Users_İnformation, bool>> getall)
+        {
+             return _users_Information_DAL.getAll(getall);
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         }
 
         public Users_İnformation getbyID(int get)

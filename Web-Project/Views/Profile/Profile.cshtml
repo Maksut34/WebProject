@@ -1,18 +1,37 @@
+<<<<<<< HEAD
 ﻿@{
     ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Web_DTO.DTO.UsersLoginDTO
 @model Web_DTO.DTO.UsersLoginDTO.UsersLoginDTO
+=======
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>User Profile</title>
 
     <style>
        
+=======
+    <link rel="stylesheet" href="styles.css">
+    <title>User Profile</title>
+
+    <style>
+        /* ... Diğer stillendirmeler ... */
+
+        /* Styling for the gallery section */
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -27,14 +46,20 @@
 
             .gallery-item img {
                 border-radius: 50%;
+<<<<<<< HEAD
                 width: 250px;
                 height: 250px;
+=======
+                width: 100px;
+                height: 100px;
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
                 object-fit: cover;
             }
 
             .gallery-item h3 {
                 margin: 0.5rem 0;
             }
+<<<<<<< HEAD
 
        
         .profile-buttons {
@@ -48,6 +73,21 @@
             .profile-buttons li {
                 margin: 0 1rem;
             }
+=======
+        
+        /* New styles for buttons */
+        .profile-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-buttons li {
+            margin: 0 1rem;
+        }
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
 
         .profile-button {
             background-color: #FF7F50;
@@ -61,6 +101,7 @@
             display: inline-block;
         }
 
+<<<<<<< HEAD
             .profile-button:hover {
                 background-color: #FF6347;
             }
@@ -175,3 +216,48 @@
   
 </body>
 </html>
+=======
+        .profile-button:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <section class="profile">
+        <br />
+        <div class="text-white" asp-validation-summary="ModelOnly"></div>
+        <br />
+        <img src="profile-picture.jpg" alt="Profile Picture">
+
+        <!-- Profile buttons -->
+        <ul class="profile-buttons">
+            <li><a href="#" class="profile-button">Profil Resmi Oluştur</a></li>
+            <li><a href="https://localhost:7164/UsersProfile/Usersİnformation/" class="profile-button">Profil Bilgisi Düzenle</a></li>
+        </ul>
+    </section>
+    @* <p>Şehir: @Model.City</p>
+    <p>Ülke: @Model.Country</p>
+    <p>Adres: @Model.Address</p> *@
+    <section class="gallery">
+        <!-- Gallery items go here -->
+        <div class="gallery-item">
+            <img src="image1.jpg" alt="Image 1">
+            <h3>Image 1</h3>
+        </div>
+        <!-- ... Daha fazla resim ekleyebilirsiniz ... -->
+    </section>
+    <section class="posts">
+        <!-- Post items go here -->
+        <div class="post">
+            <h3>Story 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- ... Daha fazla hikaye ekleyebilirsiniz ... -->
+    </section>
+</body>
+</html>
+
+>>>>>>> 1058286ea13219f1c102be35469122af732c2ddb
