@@ -26,35 +26,38 @@ namespace Web_Project.Controllers
         [HttpPost]
         public async Task <IActionResult> AddStory( AddStoryModels model)
         {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            if (user != null)
+            if(User.Identity.IsAuthenticated)
             {
-               var story=_addStoryService.Find(i=>i.storyname== model.storyname&&i.Stories==model.Stories);
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                if (story != null)
+                if (user != null)
                 {
-                    ModelState.AddModelError("", "Başlık veya hikaye zaten mevcut!");
-                }
-                else
-                {
-                    var addStory = new AddStory
-                    {
-                        UserId = user.Id,
-                        storyname = model.storyname,
-                        Types = model.Types,
-                        Stories = model.Stories
-                    };
+                    var story = _addStoryService.Find(i => i.storyname == model.storyname && i.Stories == model.Stories);
 
-                    if (ModelState.IsValid)
+                    if (story != null)
                     {
-                        _addStoryService.Insert(addStory);
-
-                        return RedirectToAction("Profile", "Profile");
+                        ModelState.AddModelError("", "Başlık veya hikaye zaten mevcut!");
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Bütün alanlar zorunludur!");
+                        var addStory = new AddStory
+                        {
+                            UserId = user.Id,
+                            storyname = model.storyname,
+                            Types = model.Types,
+                            Stories = model.Stories
+                        };
+
+                        if (ModelState.IsValid)
+                        {
+                            _addStoryService.Insert(addStory);
+
+                            return RedirectToAction("Profile", "Profile");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Bütün alanlar zorunludur!");
+                        }
                     }
                 }
             }

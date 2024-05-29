@@ -23,6 +23,9 @@ namespace Web_DTO.Data
         public DbSet<AddStory> AddStory { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Player_Values> players { get; set; }
+        public DbSet<Martianas_Values> martianas { get; set; }
+        public DbSet<PlayerWorldMapTransform> playerWorldMapTransforms { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

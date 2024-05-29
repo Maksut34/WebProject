@@ -7,14 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_DTO.Data;
 
-
 #nullable disable
 
-namespace Web_Project_API.Migrations
+namespace Web_DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230827085905_api")]
-    partial class api
+    [Migration("20240428082537_AddUserIsActiveColumn")]
+    partial class AddUserIsActiveColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -128,7 +127,143 @@ namespace Web_Project_API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Web_Project_API.Identity.IdentityUsers", b =>
+            modelBuilder.Entity("Web_Entity.Models.AddStory", b =>
+                {
+                    b.Property<int>("AddStoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddStoryId"), 1L, 1);
+
+                    b.Property<string>("Stories")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Types")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("storyname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddStoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AddStory");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Contact", b =>
+                {
+                    b.Property<int>("contactID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("contactID"), 1L, 1);
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("contactID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Image", b =>
+                {
+                    b.Property<int>("image_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("image_ID"), 1L, 1);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("image_ID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Player_Values", b =>
+                {
+                    b.Property<int>("valueID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("valueID"), 1L, 1);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("playerLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("playerLevel_EXP")
+                        .HasColumnType("int");
+
+                    b.Property<float>("player_Health")
+                        .HasColumnType("real");
+
+                    b.HasKey("valueID");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("players");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -172,6 +307,10 @@ namespace Web_Project_API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -201,6 +340,12 @@ namespace Web_Project_API.Migrations
                     b.Property<int>("confirmemailcode")
                         .HasColumnType("int");
 
+                    b.Property<int>("playersvalueId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("userIsActive")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -214,7 +359,7 @@ namespace Web_Project_API.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Web_Project_API.Identity.IdentityUsersRole", b =>
+            modelBuilder.Entity("Web_Entity.Models.Users_İnformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -222,31 +367,32 @@ namespace Web_Project_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
+                    b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
-                    b.ToTable("AspNetRoles", (string)null);
+                    b.ToTable("Users_İnformation");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("Web_Project_API.Identity.IdentityUsersRole", null)
+                    b.HasOne("Web_Entity.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -255,7 +401,7 @@ namespace Web_Project_API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("Web_Project_API.Identity.IdentityUsers", null)
+                    b.HasOne("Web_Entity.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -264,7 +410,7 @@ namespace Web_Project_API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("Web_Project_API.Identity.IdentityUsers", null)
+                    b.HasOne("Web_Entity.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -273,13 +419,13 @@ namespace Web_Project_API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.HasOne("Web_Project_API.Identity.IdentityUsersRole", null)
+                    b.HasOne("Web_Entity.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Web_Project_API.Identity.IdentityUsers", null)
+                    b.HasOne("Web_Entity.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -288,10 +434,78 @@ namespace Web_Project_API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("Web_Project_API.Identity.IdentityUsers", null)
+                    b.HasOne("Web_Entity.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.AddStory", b =>
+                {
+                    b.HasOne("Web_Entity.Models.Users", "Users")
+                        .WithMany("AddStory")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Contact", b =>
+                {
+                    b.HasOne("Web_Entity.Models.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Image", b =>
+                {
+                    b.HasOne("Web_Entity.Models.Users", "Users")
+                        .WithMany("Images")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Player_Values", b =>
+                {
+                    b.HasOne("Web_Entity.Models.Users", "Users")
+                        .WithOne("players")
+                        .HasForeignKey("Web_Entity.Models.Player_Values", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Users_İnformation", b =>
+                {
+                    b.HasOne("Web_Entity.Models.Users", "Users")
+                        .WithOne("Users_Information")
+                        .HasForeignKey("Web_Entity.Models.Users_İnformation", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Web_Entity.Models.Users", b =>
+                {
+                    b.Navigation("AddStory");
+
+                    b.Navigation("Images");
+
+                    b.Navigation("Users_Information")
+                        .IsRequired();
+
+                    b.Navigation("players")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

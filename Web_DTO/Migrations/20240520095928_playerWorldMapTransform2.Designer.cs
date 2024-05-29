@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_DTO.Data;
 
@@ -11,9 +12,10 @@ using Web_DTO.Data;
 namespace Web_DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240520095928_playerWorldMapTransform2")]
+    partial class playerWorldMapTransform2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -203,41 +205,6 @@ namespace Web_DAL.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("Web_Entity.Models.Martianas_Values", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<float>("MartianaHealth")
-                        .HasColumnType("real");
-
-                    b.Property<float>("MartianaMaxHealth")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("NoMorehealth")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("martianas");
-                });
-
             modelBuilder.Entity("Web_Entity.Models.Player_Values", b =>
                 {
                     b.Property<int>("valueID")
@@ -245,9 +212,6 @@ namespace Web_DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("valueID"), 1L, 1);
-
-                    b.Property<bool>("NoMorehealth")
-                        .HasColumnType("bit");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -259,9 +223,6 @@ namespace Web_DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<float>("player_Health")
-                        .HasColumnType("real");
-
-                    b.Property<float>("player_MaxHealth")
                         .HasColumnType("real");
 
                     b.HasKey("valueID");
@@ -531,17 +492,6 @@ namespace Web_DAL.Migrations
                 {
                     b.HasOne("Web_Entity.Models.Users", "Users")
                         .WithMany("Images")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Web_Entity.Models.Martianas_Values", b =>
-                {
-                    b.HasOne("Web_Entity.Models.Users", "Users")
-                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

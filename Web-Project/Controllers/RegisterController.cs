@@ -15,10 +15,8 @@ namespace Web_Project.Controllers
     {
         Random random = new Random();
         private readonly UserManager<Users> _user;
-        private readonly IUsersService _usersService;
-        public RegisterController(UserManager<Users> user,IUsersService usersService)
+        public RegisterController(UserManager<Users> user)
         {
-            _usersService = usersService;
             _user = user;
         }
         [HttpGet]
@@ -33,8 +31,6 @@ namespace Web_Project.Controllers
             {
                 if (usersRegisterDTO.ConfirmPassword==usersRegisterDTO.Password)
                 {
-
-
                     if (ModelState.IsValid)
                     {
                         Users users = new Users();
@@ -46,7 +42,6 @@ namespace Web_Project.Controllers
                         }
                         else
                         {
-                            
                             users.Name = usersRegisterDTO.Name;
                             users.Email = usersRegisterDTO.Email;
                             users.UserName = usersRegisterDTO.Username;
@@ -92,8 +87,6 @@ namespace Web_Project.Controllers
 
                             }
                         }
-
-
                     }
                     else
                     {
@@ -107,15 +100,10 @@ namespace Web_Project.Controllers
             }
             catch (Exception ex)
             {
-
                 string errorMessage = ex.Message;
             }
-
-
-
             return View();
         }
-
         
     }
 }

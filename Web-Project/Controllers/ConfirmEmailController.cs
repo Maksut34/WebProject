@@ -20,16 +20,16 @@ namespace Web_Project.Controllers
         [HttpGet]
         public IActionResult ConfirmEmail()
         {
-            var value = TempData["Email"];
+            var email = TempData["Email"];
             var ID = TempData["ID"];
             ViewBag.ID = ID;    
-            ViewBag.Email = value;
+            ViewBag.Email = email;
             return View();
         }
         [HttpPost]
         public async Task <IActionResult> ConfirmEmail(ConfirmEmail confirmEmail)
         {
-            Users u=new Users();
+            Users u = new Users();
             u.Id = confirmEmail.ID;
             var ıd = await _users.FindByIdAsync(u.Id.ToString());
             if (ıd.confirmemailcode == confirmEmail.confirmcode)

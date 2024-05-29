@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_DAL", "Web_DTO\Web_DAL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-Project", "Web-Project\Web-Project.csproj", "{FC198962-93BF-4763-AC27-5BEE04245E52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_Project_API", "Web_Project_API\Web_Project_API.csproj", "{81AEC479-88B5-4A9E-80C4-5DCCFF53DA63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Project_API", "Web_Project_API\Web_Project_API.csproj", "{81AEC479-88B5-4A9E-80C4-5DCCFF53DA63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

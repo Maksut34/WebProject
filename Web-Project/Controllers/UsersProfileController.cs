@@ -46,7 +46,7 @@ namespace Web_Project.Controllers
                         users_İnformation.City = editProfileViewModel.City;
                         users_İnformation.Country = editProfileViewModel.Country;
                         users_İnformation.UserId = userId.Id;
-                        users_İnformation.Users = new Users();
+                        //users_İnformation.Users = new Users();
 
                         ımage.image = editProfileViewModel.image.FileName;
 
@@ -97,7 +97,7 @@ namespace Web_Project.Controllers
                                 else
                                 {
                                     Image ımage1 = new Image();
-                                    ımage1.image_ID = userId.Id;
+                                    ımage1.UserId = userId.Id;
                                     ımage1.image = newimagename;
 
                                     _imageService.Insert(ımage1);
